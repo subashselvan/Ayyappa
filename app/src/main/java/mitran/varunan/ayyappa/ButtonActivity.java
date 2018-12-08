@@ -12,11 +12,13 @@ import android.widget.Button;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 public class ButtonActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class ButtonActivity extends AppCompatActivity {
                 //.setRequestAgent("android_studio:ad_template")
                 .build();
         adView.loadAd(adRequest);
+
 
     }
 
