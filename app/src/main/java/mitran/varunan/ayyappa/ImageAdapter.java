@@ -76,8 +76,8 @@ public class ImageAdapter extends BaseAdapter {
             R.mipmap.ayyappa3, R.mipmap.ayyappa4,
             R.mipmap.ayyappa5, R.mipmap.ayyappa6,
             R.mipmap.ayyappa7, R.mipmap.ayyappa8,
-            R.mipmap.ayyappa9, R.mipmap.ayyappa11,
-            R.mipmap.ayyappa10
+            R.mipmap.ayyappa9, R.mipmap.ayyappa10,
+            R.mipmap.ayyappa11
     };
 
     public String[] mStringIds = {

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             strValues[2] = new String("ஓம் ஹரி ஹர புத்ராய\n \tபுத்ரலாபாய!\n" +
                     "ஸத்ருநாசனாய\n மதகஜ வாகனாய\nமகா சாஸ்த்ரே நமஹ!");
 
-            strValues[9] = "அறிந்தும் அறியாமலும், தெரிந்தும் தெரியாமலும் செய்த ஸகல குற்றங்களையும் பொருத்து காத்து ரக்க்ஷித்து அருள வேண்டும்." +
+            strValues[10] = "அறிந்தும் அறியாமலும், தெரிந்தும் தெரியாமலும் செய்த ஸகல குற்றங்களையும் பொருத்து காத்து ரக்க்ஷித்து அருள வேண்டும்." +
                     "ஓம் ஸ்ரீ சத்யமான பொண்ணு பதினெட்டு படிமேல் வாழும், வில்லாளி வீரன், வீரமணி கண்டன், காசி இராமேஸ்வரம்  பாண்டி மலையாளம் அடக்கி ஆளும்" +
                     "ஓம் ஸ்ரீ ஹரிஹர சுதன் கலியுக வரதன் ஆனந்த சித்தன் என் அய்யன் ஐயப்பன் சுவாமியே சரணம் ஐயப்பா";
 
@@ -223,8 +223,9 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         if (interstitialAd != null && interstitialAd.isLoaded()) {
             interstitialAd.show();
         } else {
-            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
-            //startGame();
+            //.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+            ShowSongsLyricsButton();
+
         }
     }
 
@@ -246,6 +247,8 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             //Toast.makeText(this, "show Ads is loaded", Toast.LENGTH_SHORT).show();
         }
         else {
+            Intent i = new Intent (getApplicationContext (), BtnYoutubeActivity.class);
+            startActivity (i);
             //Toast.makeText(this, "show Ads is not loaded", Toast.LENGTH_SHORT).show();
         }
     }
@@ -271,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         //Toast.makeText(this, "Reward Ads is closed", Toast.LENGTH_SHORT).show();
         loadRewardedVideoAd();
         //ShowSongsLyricsButton ();
-        Intent i = new Intent (getApplicationContext (), YoutubeActivity.class);
+        Intent i = new Intent (getApplicationContext (), BtnYoutubeActivity.class);
         startActivity (i);
     }
 

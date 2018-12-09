@@ -70,7 +70,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements
 
             // loadVideo() will auto play video
             // Use cueVideo() method, if you don't want to play it automatically
-            player.loadVideo(Config.YOUTUBE_VIDEO_CODE);
+            player.loadVideo(getIntent().getStringExtra("id"));
 
             // Hiding player controls
             //player.setPlayerStyle(PlayerStyle.CHROMELESS);
@@ -81,7 +81,7 @@ public class YoutubeActivity extends YouTubeBaseActivity implements
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RECOVERY_DIALOG_REQUEST) {
             // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(Config.DEVELOPER_KEY, this);
+            getYouTubePlayerProvider().initialize(mitran.varunan.ayyappa.Config.DEVELOPER_KEY, this);
         }
     }
 
