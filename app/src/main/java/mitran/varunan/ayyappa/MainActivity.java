@@ -11,8 +11,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
@@ -24,17 +26,19 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity implements RewardedVideoAdListener {
 
 
-    private String[] strValues = new String[10];
+    private String[] strValues = new String[11];
     public String[] mStringIds = {
             "சுவாமி ஐயப்பன் சரணம் 108-1", "சுவாமி ஐயப்பன் சரணம் 108-2",
             "ஐயப்பன் மூலமந்திரம்", "சபரிமலை வழிநடை சரணம்",
             "ஐயப்பன் வரலாறு", "சபரிமலை யாத்திரை",
             "சபரிமலை வழிகள்", "வாபர் சுவாமி கதை",
-            "ஐயப்பன் பாடல்கள்", "மங்களம்"
+            "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்",
+            "மங்களம்"
     };
 
     private RewardedVideoAd mRewardedVideoAd;
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/5224354917";
+    private InterstitialAd interstitialAd;
+    private static final String AD_UNIT_ID = "ca-app-pub-8029348846516333/6256076571";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +54,14 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                 //Toast.makeText(HelloGridView.this, "" + position,
                 //Toast.LENGTH_SHORT).show();
                 if (position == 8) {
+                    showInterstitial();
+                }
+                else  if(position == 9)
+                {
                     loadRewardedVideoAd();
                     showRewardedVideo();
-                    /*Intent i = new Intent(getApplicationContext(), ButtonActivity.class);
-                    // Pass image index
-                    i.putExtra("id", strValues[position]);
-                    i.putExtra("title", mStringIds[position]);
-                    startActivity(i);*/
-                } else {
+                }
+                else {
                     Intent i = new Intent(getApplicationContext(), Main3Activity.class);
                     // Pass image index
                     i.putExtra("id", strValues[position]);
@@ -186,16 +190,42 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                     .build();
             adView.loadAd(adRequest);
 
-            MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
+            MobileAds.initialize(this, "ca-app-pub-8029348846516333~6696244962");
             mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
             mRewardedVideoAd.setRewardedVideoAdListener(this);
-
             loadRewardedVideoAd();
+
+            MobileAds.initialize(this, "ca-app-pub-8029348846516333~6696244962");
+            interstitialAd = new InterstitialAd(this);
+            // Defined in res/values/strings.xml
+            interstitialAd.setAdUnitId("ca-app-pub-8029348846516333/7522848795");
+            AdRequest adRequest1 = new AdRequest.Builder().build();
+            interstitialAd.loadAd(adRequest1);
+
+            interstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdClosed() {
+                    //startGame();
+                    AdRequest adRequest = new AdRequest.Builder().build();
+                    interstitialAd.loadAd(adRequest);
+                    ShowSongsLyricsButton();
+                }
+            });
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    private void showInterstitial() {
+        // Show the ad if it's ready. Otherwise toast and restart the game.
+        if (interstitialAd != null && interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        } else {
+            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
+            //startGame();
+        }
     }
 
     private void loadRewardedVideoAd()  {
@@ -240,11 +270,17 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     public void onRewardedVideoAdClosed() {
         //Toast.makeText(this, "Reward Ads is closed", Toast.LENGTH_SHORT).show();
         loadRewardedVideoAd();
-        Intent i = new Intent(getApplicationContext(), ButtonActivity.class);
+        //ShowSongsLyricsButton ();
+        Intent i = new Intent (getApplicationContext (), YoutubeActivity.class);
+        startActivity (i);
+    }
+
+    private void ShowSongsLyricsButton() {
+        Intent i = new Intent (getApplicationContext (), ButtonActivity.class);
         // Pass image index
-        i.putExtra("id", strValues[8]);
-        i.putExtra("title", mStringIds[8]);
-        startActivity(i);
+        i.putExtra ("id", strValues[8]);
+        i.putExtra ("title", mStringIds[8]);
+        startActivity (i);
     }
 
     @Override
