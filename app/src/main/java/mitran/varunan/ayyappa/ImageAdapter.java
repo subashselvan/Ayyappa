@@ -77,12 +77,12 @@ public class ImageAdapter extends BaseAdapter {
             R.mipmap.ayyappa5, R.mipmap.ayyappa6,
             R.mipmap.ayyappa7, R.mipmap.ayyappa8,
             R.mipmap.ayyappa9, R.mipmap.ayyappa10,
-            R.mipmap.ayyappa11
+            R.mipmap.ayyappa11,  R.mipmap.ayyappa12
     };
 
     public String[] mStringIds = {
             "சரணம் 108-1", "சரணம் 108-2",
-            "மூலமந்திரம்", "வழிநடைசரணம்",
+            "மூலமந்திரம்","லோக வீரம்", "வழிநடைசரணம்",
             "வரலாறு","யாத்திரை",
             "வழிகள்","வாபர்",
             "பாடல்கள்", "வீடியோ பாடல்", "மங்களம்"
