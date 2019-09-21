@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
     private String[] strValues = new String[12];
     public String[] mStringIds = {
-            "சுவாமி ஐயப்பன் சரணம் 108-1", "சுவாமி ஐயப்பன் சரணம் 108-2",
-            "ஐயப்பன் மூலமந்திரம்", "லோக வீரம்", "சபரிமலை வழிநடை சரணம்",
+            "சுவாமி ஐயப்பன் சரணம் 108-1", "சுவாமி ஐயப்பன் மந்திரங்கள்",
+            "சபரிமலை செல்வோரின் விரத முறைகள்", "சபரிமலை பதினெட்டு படிகளின் தத்துவம்",
+            "சபரிமலை வழிநடை சரணம்",
             "ஐயப்பன் வரலாறு", "சபரிமலை யாத்திரை",
             "சபரிமலை வழிகள்", "வாபர் சுவாமி கதை",
             "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்",
@@ -60,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                 {
                     loadRewardedVideoAd();
                     showRewardedVideo();
+                }
+                else  if(position == 0 || position == 1) {
+                    Intent i = new Intent(getApplicationContext(), Saranam108Activity.class);
+                    // Pass image index
+                    i.putExtra("id", strValues[position]);
+                    i.putExtra("title", mStringIds[position]);
+                    startActivity(i);
                 }
                 else {
                     Intent i = new Intent(getApplicationContext(), Main3Activity.class);
@@ -106,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                     "ஓம் ஸ்ரீ சத்யமான பொண்ணு பதினெட்டு படிமேல் வாழும், வில்லாளி வீரன், வீரமணி கண்டன், காசி இராமேஸ்வரம்  பாண்டி மலையாளம் அடக்கி ஆளும்" +
                     "ஓம் ஸ்ரீ ஹரிஹர சுதன் கலியுக வரதன் ஆனந்த சித்தன் என் அய்யன் ஐயப்பன் சுவாமியே சரணம் ஐயப்பா";
 
-            is1 = getAssets().open("logoveeram");
+            is1 = getAssets().open("logoveeram.txt");
             // check size
             size = is1.available();
             // create buffer for IO

@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ImageAdapter extends BaseAdapter {
+public class SaranamImageAdapter extends BaseAdapter {
     private Context mContext;
 
     // Constructor
-    public ImageAdapter(Context c) {
+    public SaranamImageAdapter(Context c) {
         mContext = c;
     }
 
@@ -73,19 +73,11 @@ public class ImageAdapter extends BaseAdapter {
     // Keep all Images in array
 
     public Integer[] mThumbIds = {
-            R.mipmap.ayyappa1, R.mipmap.ayyappa2,
-            R.mipmap.ayyappa3, R.mipmap.ayyappa4,
-            R.mipmap.ayyappa5, R.mipmap.ayyappa6,
-            R.mipmap.ayyappa7, R.mipmap.ayyappa8,
-            R.mipmap.ayyappa9, R.mipmap.ayyappa10,
-            R.mipmap.ayyappa11,  R.mipmap.ayyappa12
+            R.mipmap.ayyappa1, R.mipmap.ayyappa2
+
     };
     public String[] mStringIds = {
-            "சரணம் 108", "மந்திரங்கள்",
-            "விரதமுறை","பதினெட்டுபடி",
-            "வரலாறு","யாத்திரை",
-            "வழிகள்","வழிநடைசரணம்","வாபர்",
-            "பாடல்கள்", "வீடியோபாடல்", "மங்களம்"
+            "சரணம் 108-1", "சரணம் 108-2"
 
     };
 }
