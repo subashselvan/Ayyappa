@@ -79,16 +79,17 @@ public class ImageAdapter extends BaseAdapter {
             R.mipmap.ayyappa1, R.mipmap.ayyappa2,
             R.mipmap.ayyappa3, R.mipmap.ayyappa4,
             R.mipmap.ayyappa5, R.mipmap.ayyappa6,
-            R.mipmap.ayyappa7, R.mipmap.ayyappa8,
+            R.mipmap.ayyappa13, R.mipmap.ayyappa7,
             R.mipmap.ayyappa9, R.mipmap.ayyappa10,
-            R.mipmap.ayyappa11,  R.mipmap.ayyappa12
+            R.mipmap.ayyappa11,  R.mipmap.ayyappa8,
+            R.mipmap.ayyappa12
     };
     public String[] mStringIds = {
             "சரணம் 108", "மந்திரங்கள்",
             "விரதமுறை","பதினெட்டுபடி தத்துவம்",
-            "வரலாறு   ","யாத்திரை",
+            "வரலாறு   ","சிறப்புத் தகவல்கள்",
             "போக்குவரத்து வழிகள்","வழிநடை சரணம்","வாபர்   ",
-            "பாடல்கள்", "வீடியோ பாடல்", "மங்களம்   "
+            "பாடல்கள்", "வீடியோ பாடல்","கோயில்கள்", "மங்களம்"
 
     };
 }
