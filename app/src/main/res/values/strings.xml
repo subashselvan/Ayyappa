@@ -10,4 +10,5 @@
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="title_activity_my_rewarded_ad">MyRewardedAd</string>
     <string name="title_activity_saranam108">Saranam108Activity</string>
+    <string name="title_activity_mandhiram">MandhiramActivity</string>
 </resources>

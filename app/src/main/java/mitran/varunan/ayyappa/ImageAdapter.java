@@ -5,6 +5,7 @@ package mitran.varunan.ayyappa;
  */
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -44,6 +45,7 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null) {
             layout = new LinearLayout(mContext);
             layout.setOrientation(LinearLayout.VERTICAL);
+            layout.setGravity(Gravity.CENTER);
 
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(250, 250));
@@ -52,9 +54,10 @@ public class ImageAdapter extends BaseAdapter {
             imageView.setImageResource(mThumbIds[position]);
 
             txt = new TextView(mContext);
-            txt.setLayoutParams(new GridView.LayoutParams(350, 60));
-            txt.setPadding(10,0,0,0);
+            txt.setLayoutParams(new GridView.LayoutParams(350, 120));
+            txt.setPadding(0,0,0,0);
             txt.setText(mStringIds[position]);
+            txt.setGravity(Gravity.CENTER);
 
 
             layout.addView(imageView);
@@ -82,10 +85,10 @@ public class ImageAdapter extends BaseAdapter {
     };
     public String[] mStringIds = {
             "சரணம் 108", "மந்திரங்கள்",
-            "விரதமுறை","பதினெட்டுபடி",
-            "வரலாறு","யாத்திரை",
-            "வழிகள்","வழிநடைசரணம்","வாபர்",
-            "பாடல்கள்", "வீடியோபாடல்", "மங்களம்"
+            "விரதமுறை","பதினெட்டுபடி தத்துவம்",
+            "வரலாறு   ","யாத்திரை",
+            "போக்குவரத்து வழிகள்","வழிநடை சரணம்","வாபர்   ",
+            "பாடல்கள்", "வீடியோ பாடல்", "மங்களம்   "
 
     };
 }

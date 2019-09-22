@@ -30,9 +30,8 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     public String[] mStringIds = {
             "சுவாமி ஐயப்பன் சரணம் 108-1", "சுவாமி ஐயப்பன் மந்திரங்கள்",
             "சபரிமலை செல்வோரின் விரத முறைகள்", "சபரிமலை பதினெட்டு படிகளின் தத்துவம்",
-            "சபரிமலை வழிநடை சரணம்",
             "ஐயப்பன் வரலாறு", "சபரிமலை யாத்திரை",
-            "சபரிமலை வழிகள்", "வாபர் சுவாமி கதை",
+            "சபரிமலை வழிகள்","சபரிமலை வழிநடை சரணம்", "வாபர் சுவாமி கதை",
             "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்",
             "மங்களம்"
     };
@@ -54,15 +53,15 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                                     int position, long id) {
                 //Toast.makeText(HelloGridView.this, "" + position,
                 //Toast.LENGTH_SHORT).show();
-                if (position == 9) {
-                    showInterstitial();
+                if (position == 9 || position == 1) {
+                    showInterstitial(position);
                 }
                 else  if(position == 10)
                 {
                     loadRewardedVideoAd();
                     showRewardedVideo();
                 }
-                else  if(position == 0 || position == 1) {
+                else  if(position == 0) {
                     Intent i = new Intent(getApplicationContext(), Saranam108Activity.class);
                     // Pass image index
                     i.putExtra("id", strValues[position]);
@@ -82,7 +81,9 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
         InputStream is1 = null;
         try {
-            is1 = getAssets().open("new1.txt");
+            strValues[0] = new String("108 Saranam");
+
+            is1 = getAssets().open("viradham.txt");
             // check size
             int size = is1.available();
             // create buffer for IO
@@ -92,29 +93,17 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             // close stream
             is1.close();
 
-            strValues[0] = new String(buffer);
-
-            is1 = getAssets().open("new2.txt");
-            // check size
-            size = is1.available();
-            // create buffer for IO
-            buffer = new byte[size];
-            // get data to buffer
-            is1.read(buffer);
-            // close stream
-            is1.close();
-
-            strValues[1] = new String(buffer);
+            strValues[2] = new String(buffer);
 
 
-            strValues[2] = new String("ஓம் ஹரி ஹர புத்ராய\n \tபுத்ரலாபாய!\n" +
+            strValues[1] = new String("ஓம் ஹரி ஹர புத்ராய\n \tபுத்ரலாபாய!\n" +
                     "ஸத்ருநாசனாய\n மதகஜ வாகனாய\nமகா சாஸ்த்ரே நமஹ!");
 
             strValues[11] = "அறிந்தும் அறியாமலும், தெரிந்தும் தெரியாமலும் செய்த ஸகல குற்றங்களையும் பொருத்து காத்து ரக்க்ஷித்து அருள வேண்டும்." +
                     "ஓம் ஸ்ரீ சத்யமான பொண்ணு பதினெட்டு படிமேல் வாழும், வில்லாளி வீரன், வீரமணி கண்டன், காசி இராமேஸ்வரம்  பாண்டி மலையாளம் அடக்கி ஆளும்" +
                     "ஓம் ஸ்ரீ ஹரிஹர சுதன் கலியுக வரதன் ஆனந்த சித்தன் என் அய்யன் ஐயப்பன் சுவாமியே சரணம் ஐயப்பா";
 
-            is1 = getAssets().open("logoveeram.txt");
+            is1 = getAssets().open("18stepsThatuvam.txt");
             // check size
             size = is1.available();
             // create buffer for IO
@@ -125,7 +114,9 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             is1.close();
             strValues[3] = new String(buffer);
 
-            is1 = getAssets().open("new3.txt");
+
+
+            is1 = getAssets().open("varalaru.txt");
             // check size
             size = is1.available();
             // create buffer for IO
@@ -137,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
             strValues[4] = new String(buffer);
 
-            is1 = getAssets().open("varalaru.txt");
+            is1 = getAssets().open("yaathirai.txt");
             // check size
             size = is1.available();
             // create buffer for IO
@@ -150,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             strValues[5] = new String(buffer);
 
 
-            is1 = getAssets().open("yaathirai.txt");
+            is1 = getAssets().open("vazhaligal.txt");
             // check size
             size = is1.available();
             // create buffer for IO
@@ -162,8 +153,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
             strValues[6] = new String(buffer);
 
-
-            is1 = getAssets().open("vazhaligal.txt");
+            is1 = getAssets().open("new3.txt");
             // check size
             size = is1.available();
             // create buffer for IO
@@ -237,14 +227,17 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
     }
 
-    private void showInterstitial() {
+    private void showInterstitial(int pos) {
         // Show the ad if it's ready. Otherwise toast and restart the game.
         if (interstitialAd != null && interstitialAd.isLoaded()) {
             interstitialAd.show();
         } else {
-            //.makeText(this, "Ad did not load", Toast.LENGTH_SHORT).show();
-            ShowSongsLyricsButton();
-
+            if(pos == 9) {
+                ShowSongsLyricsButton();
+            }
+            else if(pos == 1){
+                ShowMandhiramButton();
+            }
         }
     }
 
@@ -302,6 +295,13 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         // Pass image index
         i.putExtra ("id", strValues[8]);
         i.putExtra ("title", mStringIds[8]);
+        startActivity (i);
+    }
+
+    private void ShowMandhiramButton() {
+        Intent i = new Intent (getApplicationContext (), MandhiramActivity.class);
+        // Pass image index
+        i.putExtra ("id", strValues[1]);
         startActivity (i);
     }
 
