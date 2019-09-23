@@ -25,14 +25,14 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements RewardedVideoAdListener {
 
-
-    private String[] strValues = new String[12];
+    private int postab;
+    private String[] strValues = new String[13];
     public String[] mStringIds = {
             "சுவாமி ஐயப்பன் சரணம் 108-1", "சுவாமி ஐயப்பன் மந்திரங்கள்",
             "சபரிமலை செல்வோரின் விரத முறைகள்", "சபரிமலை பதினெட்டுப் படிகளின் தத்துவம்",
             "ஐயப்பன் வரலாறு", "சிறப்புத் தகவல்கள்",
             "சபரிமலை வழிகள்","சபரிமலை வழிநடை சரணம்", "வாபர் சுவாமி கதை",
-            "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்",
+            "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்","கோயில்கள்",
             "மங்களம்"
     };
 
@@ -53,8 +53,9 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                                     int position, long id) {
                 //Toast.makeText(HelloGridView.this, "" + position,
                 //Toast.LENGTH_SHORT).show();
-                if (position == 9 || position == 1) {
-                    showInterstitial(position);
+                if (position == 9 || position == 1 || position == 5 || position == 11) {
+                    postab  = position;
+                    showInterstitial();
                 }
                 else  if(position == 10)
                 {
@@ -217,7 +218,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                     //startGame();
                     AdRequest adRequest = new AdRequest.Builder().build();
                     interstitialAd.loadAd(adRequest);
-                    ShowSongsLyricsButton();
+                    ShowAllButton();
                 }
             });
 
@@ -227,17 +228,12 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
     }
 
-    private void showInterstitial(int pos) {
+    private void showInterstitial() {
         // Show the ad if it's ready. Otherwise toast and restart the game.
         if (interstitialAd != null && interstitialAd.isLoaded()) {
             interstitialAd.show();
         } else {
-            if(pos == 9) {
-                ShowSongsLyricsButton();
-            }
-            else if(pos == 1){
-                ShowMandhiramButton();
-            }
+            ShowAllButton();
         }
     }
 
@@ -290,6 +286,21 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         startActivity (i);
     }
 
+    private void ShowAllButton() {
+        if(postab == 9) {
+            ShowSongsLyricsButton();
+        }
+        else if(postab == 1){
+            ShowMandhiramButton();
+        }
+        else if(postab == 5){
+            ShowInformationButton();
+        }
+        else if(postab == 11){
+            ShowTemplesButton();
+        }
+    }
+
     private void ShowSongsLyricsButton() {
         Intent i = new Intent (getApplicationContext (), ButtonActivity.class);
         // Pass image index
@@ -304,6 +315,22 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         i.putExtra ("id", strValues[1]);
         startActivity (i);
     }
+
+    private void ShowInformationButton() {
+        Intent i = new Intent (getApplicationContext (), information.class);
+        // Pass image index
+        i.putExtra ("id", strValues[1]);
+        startActivity (i);
+    }
+
+    private void ShowTemplesButton() {
+        Intent i = new Intent (getApplicationContext (), Temples.class);
+        // Pass image index
+        i.putExtra ("id", strValues[1]);
+        startActivity (i);
+    }
+
+
 
     @Override
     public void onRewarded(RewardItem rewardItem) {

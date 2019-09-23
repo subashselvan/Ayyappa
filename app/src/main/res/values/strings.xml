@@ -11,4 +11,6 @@
     <string name="title_activity_my_rewarded_ad">MyRewardedAd</string>
     <string name="title_activity_saranam108">Saranam108</string>
     <string name="title_activity_mandhiram">Mandhiram</string>
+    <string name="title_activity_information">Special Information</string>
+    <string name="title_activity_temples">Temples</string>
 </resources>

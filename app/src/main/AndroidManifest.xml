@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Temples"
+            android:label="@string/title_activity_temples"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".information"
+            android:label="@string/title_activity_information"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".MandhiramActivity"
             android:label="@string/title_activity_mandhiram"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Saranam108Activity"
             android:label="@string/title_activity_saranam108"
