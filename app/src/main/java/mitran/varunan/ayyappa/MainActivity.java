@@ -2,14 +2,10 @@ package mitran.varunan.ayyappa;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -31,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             "சுவாமி ஐயப்பன் சரணம் 108-1", "சுவாமி ஐயப்பன் மந்திரங்கள்",
             "சபரிமலை செல்வோரின் விரத முறைகள்", "சபரிமலை பதினெட்டுப் படிகளின் தத்துவம்",
             "ஐயப்பன் வரலாறு", "சிறப்புத் தகவல்கள்",
-            "சபரிமலை வழிகள்","சபரிமலை வழிநடை சரணம்", "வாபர் சுவாமி கதை",
+            "சபரிமலை போக்குவரத்து வழிகள்","சபரிமலை வழிநடை சரணம்", "வாபர் சுவாமி கதை",
             "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்","கோயில்கள்",
             "மங்களம்"
     };
@@ -317,14 +313,14 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     }
 
     private void ShowInformationButton() {
-        Intent i = new Intent (getApplicationContext (), information.class);
+        Intent i = new Intent (getApplicationContext (), InformationActivity.class);
         // Pass image index
         i.putExtra ("id", strValues[1]);
         startActivity (i);
     }
 
     private void ShowTemplesButton() {
-        Intent i = new Intent (getApplicationContext (), Temples.class);
+        Intent i = new Intent (getApplicationContext (), TemplesActivity.class);
         // Pass image index
         i.putExtra ("id", strValues[1]);
         startActivity (i);
