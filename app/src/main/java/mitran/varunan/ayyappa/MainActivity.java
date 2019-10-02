@@ -3,6 +3,7 @@ package mitran.varunan.ayyappa;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             "சுவாமி ஐயப்பன் சரணம் 108", "சுவாமி ஐயப்பன் மந்திரங்கள்",
             "சபரிமலை செல்வோரின் விரத முறைகள்", "சபரிமலை பதினெட்டுப் படிகளின் தத்துவம்",
             "ஐயப்பன் வரலாறு", "வாபர் சுவாமி கதை",
-            "சிறப்புத் தகவல்கள்","",
+            "சிறப்புத் தகவல்கள்","சபரிமலை",
             "சபரிமலை வழிநடை சரணம்", "கோயில்கள்",
             "ஐயப்பன் பாடல்கள்", "வீடியோ பாடல்கள்",
             "சபரிமலை போக்குவரத்து வழிகள்",
@@ -270,7 +271,8 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
             ShowPoojaiInformationButton();
         }
         else if(postab == 7){
-            ShowPoojaiInformationButton();
+            Log.d("Subash", "Clicked Yaathirai Information");
+            ShowYaathiraiInformationButton();
         }
         else if(postab == 9){
             ShowTemplesButton();
@@ -287,6 +289,13 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
 
     private void ShowMandhiramButton() {
         Intent i = new Intent (getApplicationContext (), MandhiramActivity.class);
+        // Pass image index
+        i.putExtra ("id", strValues[1]);
+        startActivity (i);
+    }
+
+    private void ShowYaathiraiInformationButton() {
+        Intent i = new Intent (getApplicationContext (), YathiraiActivity.class);
         // Pass image index
         i.putExtra ("id", strValues[1]);
         startActivity (i);

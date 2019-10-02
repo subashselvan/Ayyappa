@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ayyappa1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".YathiraiActivity"></activity>
+        <activity
+            android:name=".YathiraiActivity"
+            android:label="சபரிமலை யாத்திரை"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
         <activity
             android:name=".TemplesActivity"
             android:label="@string/title_activity_temples"
