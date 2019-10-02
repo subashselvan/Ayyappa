@@ -12,8 +12,7 @@
         <activity
             android:name=".YathiraiActivity"
             android:label="சபரிமலை யாத்திரை"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TemplesActivity"
             android:label="@string/title_activity_temples"

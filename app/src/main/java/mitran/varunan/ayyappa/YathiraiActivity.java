@@ -27,8 +27,8 @@ public class YathiraiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yathirai);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         MobileAds.initialize(this, "ca-app-pub-8029348846516333~6696244962");
         // Load an ad into the AdMob banner view.
