@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ayyappa1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".YathiraiActivity"></activity>
         <activity
             android:name=".TemplesActivity"
             android:label="@string/title_activity_temples"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".InformationActivity"
+            android:name=".PoojaiActivity"
             android:label="@string/title_activity_information"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

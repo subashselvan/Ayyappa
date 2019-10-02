@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class InformationActivity extends AppCompatActivity {
+public class PoojaiActivity extends AppCompatActivity {
     Map<Integer, activityContent> hm = new HashMap<Integer,activityContent>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

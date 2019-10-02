@@ -16,10 +16,10 @@
 #   public *;
 #}
 
-# Uncomment this to preserve the line number InformationActivity for
+# Uncomment this to preserve the line number PoojaiActivity for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
 
-# If you keep the line number InformationActivity, uncomment this to
+# If you keep the line number PoojaiActivity, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
