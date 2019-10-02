@@ -59,7 +59,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="புலிகுன்னூர் (புலிகுன்று)-குருநாதன் முகடி" />
+                     />
 
                 <Button
                     android:id="@+id/button2"
@@ -70,7 +70,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="பந்தளம்" />
+                     />
 
                 <Button
                     android:id="@+id/button3"
@@ -81,7 +81,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="மாம்பழத்துறை பத்ரகாளி" />
+                    />
 
                 <Button
                     android:id="@+id/button4"
@@ -92,7 +92,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="சொரிமுத்தையனார் கோயில்" />
+                     />
 
                 <Button
                     android:id="@+id/button5"
@@ -103,7 +103,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="ஆரியங்காவு" />
+                     />
                 <Button
                     android:id="@+id/button6"
                     style="@style/button_text"
@@ -113,7 +113,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="குளத்துப்புழை" />
+                     />
                 <Button
                     android:id="@+id/button7"
                     style="@style/button_text"
@@ -123,7 +123,7 @@
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/red_button"
                     android:onClick="onClick"
-                    android:text="அரசனாக அச்சன் கோவிலில்" />
+                     />
 
 
 
