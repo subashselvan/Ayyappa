@@ -1,6 +1,11 @@
 package mitran.varunan.ayyappa;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -16,9 +21,9 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
-
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity implements RewardedVideoAdListener {
 
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     private RewardedVideoAd mRewardedVideoAd;
     private InterstitialAd interstitialAd;
     private static final String AD_UNIT_ID = "ca-app-pub-8029348846516333/6256076571";
+    String needToUpdate = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,24 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new mitran.varunan.ayyappa.ImageAdapter(this));
 
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        try {
+            GetVersionCode versionChecker = new GetVersionCode(this);
+            needToUpdate = versionChecker.execute().get();
+            if(Float.valueOf(needToUpdate) == 1){
+                Log.d("Subash", "Show update alert dialog");
+                showUpdateDialog();
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        if(Float.valueOf(needToUpdate) != 1) {
+            ReviewDialog rate = new ReviewDialog();
+            rate.ShowRateDialog(this);
+        }
+
+        //region Image adapter click functionality
+       gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 //Toast.makeText(HelloGridView.this, "" + position,
@@ -77,8 +100,7 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
                 }
             }
         });
-
-
+        //endregion
         InputStream is1 = null;
         try {
             strValues[0] = new String("108 Saranam");
@@ -199,7 +221,6 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private void showInterstitial() {
@@ -330,6 +351,21 @@ public class MainActivity extends AppCompatActivity implements RewardedVideoAdLi
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
         //Toast.makeText(this, "onRewardedVideoAdFailedToLoad", Toast.LENGTH_SHORT).show();
+    }
+
+    private void showUpdateDialog(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("A New Update is Available");
+        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.d("Subash", "onClick:app latest version ");
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse
+                        ("market://details?id="+BuildConfig.APPLICATION_ID)));
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 }
 
